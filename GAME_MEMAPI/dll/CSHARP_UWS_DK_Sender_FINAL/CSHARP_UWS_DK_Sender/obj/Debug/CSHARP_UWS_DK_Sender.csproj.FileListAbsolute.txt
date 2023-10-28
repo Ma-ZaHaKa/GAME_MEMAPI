@@ -1,0 +1,10 @@
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\bin\Debug\CSHARP_UWS_DK_Sender.exe.config
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\bin\Debug\CSHARP_UWS_DK_Sender.exe
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\bin\Debug\CSHARP_UWS_DK_Sender.pdb
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\bin\Debug\websocket-sharp.dll
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\bin\Debug\websocket-sharp.xml
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\obj\Debug\CSHARP_UWS_DK_Sender.csprojAssemblyReference.cache
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\obj\Debug\CSHARP_UWS_DK_Sender.csproj.CoreCompileInputs.cache
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\obj\Debug\CSHARP_UWS_DK_Sender.csproj.CopyComplete
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\obj\Debug\CSHARP_UWS_DK_Sender.exe
+D:\1програмирование\c#\VISUALSTUDIOPROJ\CSHARP_UWS_DK_Sender\CSHARP_UWS_DK_Sender\obj\Debug\CSHARP_UWS_DK_Sender.pdb
