@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEMAPI_HANDLER", "MEMAPI_HANDLER\MEMAPI_HANDLER.csproj", "{18BAE97D-E227-4CCC-9107-D680C1730D9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18BAE97D-E227-4CCC-9107-D680C1730D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18BAE97D-E227-4CCC-9107-D680C1730D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18BAE97D-E227-4CCC-9107-D680C1730D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18BAE97D-E227-4CCC-9107-D680C1730D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E7E723C9-C21A-49ED-A61D-6A67A2862E1B}
+	EndGlobalSection
+EndGlobal
