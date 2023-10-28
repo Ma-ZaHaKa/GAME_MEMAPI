@@ -1,0 +1,49 @@
+установка:
+https://github.com/microsoft/vcpkg
+
+git clone https://github.com/microsoft/vcpkg
+> .\vcpkg\bootstrap-vcpkg.bat
+
+САЙТ С КОММНАДАМИ ДЛЯ УСТАНОВКИ https://vcpkg.io/en/packages.html
+для uws
+ .\vcpkg install nlohmann-json
+.\vcpkg install uwebsockets (должен потянуть также zlib и libuv если не то они ниже)
+.\vcpkg install zlib
+.\vcpkg install libuv
+
+ДАЛЬШЕ НУЖНО ЗАПИХНУТЬ ПУТИ vcpkg в проект (c гита user/vcpkg) (нужны include для c++ и lib для компоновщика)
+УКАЗЫВАТЬ ПУТЬ ДЛЯ ЗАГОЛОВКОВ И ЛИБ АРХИТЕКТУРЫ ТВОЕГО ПРИЛОЖЕНИЯ ТОБИШЬ ИГРА x86 ПИШЕШЬ ЧИТ, НАСТРОЙКИ ПРОЕКТА x86
+
+ПРИМЕР:
+C:\Users\Zver\vcpkg\installed\x86-windows\include подключить к проекту в c++ для #include <uwebsockets/App.h>
+C:\Users\Zver\vcpkg\installed\x86-windows\lib для lib библиотек в компоновщике - общие - дополнительные каталоги без них не соберёшь будет лям ошибок #pragma comment(lib, "uSockets.lib")
+
+
+websocket.h там прагма once и всё нужные заголовки, подключишь в cpp лям ошибок библа на библу ложиться
+пример вебсокет-заголовка
+#pragma once
+
+#pragma comment(lib, "zlib.lib")
+
+#pragma comment(lib, "uv.lib")
+
+#pragma comment(lib, "uSockets.lib")
+
+#include <thread>
+
+#include <string>
+
+#include <uwebsockets/App.h>
+
+#include <nlohmann/json.hpp>
+
+
+тут подключай всё что хочешь
+
+А В CPP ТОК НАШ ЗАГОЛОВОК и реализация обработчиков сервера
+#include "DIKTOR_UWS.h" // низя докидывать либы бо будут конфликты, подключай всё в header
+
+using namespace std;
+
+!!! ПОСЛЕ СБОРКИ РЯДОМ ДОЛНЫ БЫТЬ zlib1.dll uv.dll uSockets.dll ЛЕЖАТ ОНИ В BIN
+C:\Users\Zver\vcpkg\installed\x86-windows\bin

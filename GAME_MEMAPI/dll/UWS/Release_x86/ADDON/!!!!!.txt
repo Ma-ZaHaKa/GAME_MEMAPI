@@ -1,0 +1,24 @@
+cd C:\User\vcpkg
+
+.\vcpkg install uwebsockets
+.\vcpkg install nlohmann-json
+.\vcpkg install zlib
+
+.\vcpkg install uwebsockets:x64-windows
+.\vcpkg install nlohmann-json:x64-windows
+.\vcpkg install zlib:x64-windows
+
+//---PROJECT
+C++ откл все предупреждения
+С++ -> Создание кода -> отключить проверку безопасности gs
+Свойства конфигурации -> Дополнительно -> Использовать многобайтовою кодировку
+
+общие->sdk 10.18 + c++ 17 ?
+
+c/c++-> доп каталог включаемых C:\Users\Zver\vcpkg\installed\x86-windows\include
+компоновщик->дополнительные каталоги библиотек (link errors fix) -> первое поле ->
+C:\Users\Zver\vcpkg\installed\x86-windows\lib\
+
+в коде подключаем реализацию так
+#pragma comment(lib, "zlib.lib")
+Заголовки в include

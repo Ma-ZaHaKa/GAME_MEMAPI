@@ -1,0 +1,52 @@
+4 func
+USE
+
+typedef std::vector<std::string>(*WGetMessagesFunction)(bool);
+WGetMessagesFunction WGetMessages;
+
+typedef bool (*WSendMessageFunction)(std::string);
+WSendMessageFunction WSendMessage;
+
+typedef bool (*WSendMessageAsJsonFunction)(std::vector<std::string>, std::vector<std::string>);
+WSendMessageAsJsonFunction WSendMessageAsJson;
+
+typedef bool (*WSendMessageAsDataJsonFunction)(std::string);
+WSendMessageAsDataJsonFunction WSendMessageAsDataJson;
+
+bool isStartUWS = false;
+
+void UWS()
+{
+	while (true) { if (!IsInitEnd) { Sleep(1000); } else { break; } }
+
+	//typedef std::vector<std::string>(*WGetMessagesFunction)(bool);
+	//typedef bool (*WSendMessageFunction)(std::string);
+
+	ghDiktorUWS = LoadLibraryA("WebSocketDiktor.dll");
+	Sleep(SteamInitDelay); // init my lib
+
+	WGetMessages = reinterpret_cast<WGetMessagesFunction>(GetProcAddress(ghDiktorUWS, "WGetMessages"));
+	WSendMessage = reinterpret_cast<WSendMessageFunction>(GetProcAddress(ghDiktorUWS, "WSendMessage"));
+	WSendMessageAsJson = reinterpret_cast<WSendMessageAsJsonFunction>(GetProcAddress(ghDiktorUWS, "WSendMessageAsJson"));
+	WSendMessageAsDataJson = reinterpret_cast<WSendMessageAsDataJsonFunction>(GetProcAddress(ghDiktorUWS, "WSendMessageAsDataJson"));
+	Sleep(50);
+	isStartUWS = true;
+	return;
+
+	//WGetMessagesFunction getMessagesFunction = reinterpret_cast<WGetMessagesFunction>(GetProcAddress(ghDiktorUWS, "WGetMessages"));
+	//WSendMessageFunction sendMessageFunction = reinterpret_cast<WSendMessageFunction>(GetProcAddress(ghDiktorUWS, "WSendMessage"));
+	//isStartUWS = true;
+
+	//bool result = sendMessageFunction("MSG!");
+	//while (true)
+	//{// print stack
+	//	std::vector<std::string> messages = getMessagesFunction(true);
+	//	if (!messages.empty()) {
+	//		for (const std::string& message : messages) {
+	//			std::cout << "UWS_MES: " << message << std::endl;
+	//		}
+	//	}
+	//	Sleep(1000);
+	//}
+}
+if(isStartUWS) { WSendMessage(std::to_string(outIdDIV2));} // sms master with result ID/2
