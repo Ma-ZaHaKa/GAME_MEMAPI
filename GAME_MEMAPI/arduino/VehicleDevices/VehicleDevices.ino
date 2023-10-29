@@ -47,6 +47,21 @@ void PrintLCD_RU(String text, int row = 0, int col = 0)
   lcd_ru.print(text);
 }
 
+void PrintErrorJson(String error_msg)
+{
+    DynamicJsonDocument responseDoc(JSON_BUFFER_SIZE);
+   responseDoc["error"] = error_msg;
+   serializeJson(responseDoc, Serial);
+   Serial.println();
+}
+
+void PrintDataJson(String message)
+{
+    DynamicJsonDocument responseDoc(JSON_BUFFER_SIZE);
+   responseDoc["data"] = message;
+   serializeJson(responseDoc, Serial);
+   Serial.println();
+}
 
 void loop()
 {
@@ -66,6 +81,7 @@ void loop()
         {
           String value = jsonDoc["value"].as<String>();
           PrintLCD_RU(value);
+          PrintDataJson("OK");
         }
         
         else if(jsonDoc["mode"] == "print_wstr" && jsonDoc.containsKey("value") && jsonDoc.containsKey("string"))
@@ -79,17 +95,16 @@ void loop()
           String result = String(a) + ": " + String(b);*/
           String out = string + ": " + value;
           PrintLCD_RU(out, row);
+          PrintDataJson("OK");
         }
               
-        else if (jsonDoc["mode"] == "hello")
-        {
-          DynamicJsonDocument responseDoc(JSON_BUFFER_SIZE);
-          responseDoc["data"] = PROJ_CODE;
-          serializeJson(responseDoc, Serial);
-          Serial.println();
-        }
-                
+        else if (jsonDoc["mode"] == "hello") { PrintDataJson(PROJ_CODE); }
+        
+        else{ PrintErrorJson("Error find mode"); }
       }
+      else{ PrintErrorJson("Error key mode"); }
     }
+    else{ PrintErrorJson("Error Deserealization"); }
+    
   }
 }
