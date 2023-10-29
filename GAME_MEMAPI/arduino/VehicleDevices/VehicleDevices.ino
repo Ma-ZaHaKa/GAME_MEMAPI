@@ -84,7 +84,7 @@ void loop()
           PrintDataJson("OK");
         }
         
-        else if(jsonDoc["mode"] == "print_wstr" && jsonDoc.containsKey("value") && jsonDoc.containsKey("string"))
+        else if(jsonDoc["mode"] == "print_wstr" && jsonDoc.containsKey("value") && jsonDoc.containsKey("descr"))
         { // {"mode":"print_wstr","value":"123","string":"пвапав","row":"1"}
           String string = jsonDoc["string"].as<String>();
           String value = jsonDoc["value"].as<String>();
@@ -104,6 +104,8 @@ void loop()
       }
       else{ PrintErrorJson("Error key mode"); }
     }
+    
+    else if (inputString == "hello") { PrintDataJson(PROJ_CODE); }
     else{ PrintErrorJson("Error Deserealization"); }
     
   }
