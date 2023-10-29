@@ -80,13 +80,15 @@ void loop()
         if(jsonDoc["mode"] == "print" && jsonDoc.containsKey("value"))
         {
           String value = jsonDoc["value"].as<String>();
-          PrintLCD_RU(value);
+          int row = 0;
+          if(jsonDoc.containsKey("row")) { row = jsonDoc["row"].as<String>().toInt(); if((row < 0) || (row > 1)){ row = 0; } }
+          PrintLCD_RU(value, row);
           PrintDataJson("OK");
         }
         
         else if(jsonDoc["mode"] == "print_wstr" && jsonDoc.containsKey("value") && jsonDoc.containsKey("descr"))
-        { // {"mode":"print_wstr","value":"123","string":"пвапав","row":"1"}
-          String string = jsonDoc["string"].as<String>();
+        { // {"mode":"print_wstr","value":"123","descr":"пвапав","row":"1"}
+          String string = jsonDoc["descr"].as<String>();
           String value = jsonDoc["value"].as<String>();
           int row = 0;
           if(jsonDoc.containsKey("row")) { row = jsonDoc["row"].as<String>().toInt(); if((row < 0) || (row > 1)){ row = 0; } }
