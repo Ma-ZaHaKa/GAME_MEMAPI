@@ -100,13 +100,13 @@ void loop()
               
         else if (jsonDoc["mode"] == "hello") { PrintDataJson(PROJ_CODE); }
         
-        else{ PrintErrorJson("Error find mode"); }
+        else { PrintErrorJson("Error find mode"); }
       }
-      else{ PrintErrorJson("Error key mode"); }
+      else { PrintErrorJson("Error key mode"); }
     }
     
     else if (inputString == "hello") { PrintDataJson(PROJ_CODE); }
-    else{ PrintErrorJson("Error Deserealization"); }
+    else { PrintErrorJson("Error Deserealization"); }
     
   }
 }
