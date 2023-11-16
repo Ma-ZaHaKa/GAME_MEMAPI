@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="TOOLS\Internet.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="TOOLS\Tools.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="TOOLS\opcode_len_calc.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="TOOLS\Pointers_Diktor.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{d3249a2b-95fe-4bce-a77d-ec8e13f42e1c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TOOLS\Internet.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="TOOLS\Tools.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="TOOLS\opcode_len_calc.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="TOOLS\XMemory.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="TOOLS\MsgAPI.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="TOOLS\Pointers_Diktor.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
