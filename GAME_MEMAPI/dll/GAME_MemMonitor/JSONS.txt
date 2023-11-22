@@ -1,0 +1,11 @@
+{ "mode":"get_pointer", "module" : "eurotrucks2.exe", "base_offset" : "0x1C4B4B8", "offsets" : ["0x0", "0xB0", "0x33C"] }
+{ "mode":"get_pointer", "module" : "fmodstudio.dll", "base_offset" : "0x158B50", "offsets" : ["0x5C0", "0x8", "0x60", "0x60", "0x18", "0x208"] }
+{ "mode":"get_pointer", "module" : "gta3.exe", "base_offset" : "0x5412F0", "offsets" : ["0x2C0"] }
+
+{ "mode":"find_pattern", "pointer" : "0x7F", "pattern" : "55 8B EC 56 8B 75 08 68 ? ? ? ? 56 E8 ? ? ? ? 83 84 C0", "block_size" : "0x2C0" }
+{ "mode":"get_value", "pointer":"0x13C41058", "type":"int" }
+{ "mode":"set_value", "pointer":"0x13C41058", "type":"int", "value":"0" }
+{ "mode":"get_module", "module":"WebSocketDiktor.dll" }
+{ "mode":"get_modules" }
+{ "mode":"load_module", "path":"WEBSOCKET.dll" }
+{ "mode":"hello" }
