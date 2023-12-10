@@ -161,7 +161,7 @@ void MessageHandler(int port, std::string message)
 				}
 			}
 
-			SendWebsocketSTR(port, CalcPointerByOffsets(module_name, base_offset, offsets, true));
+			SendWebsocketSTR(port, CalcPointerByOffsetsStr(module_name, base_offset, offsets, true));
 
 
 			//--CHECKSUM

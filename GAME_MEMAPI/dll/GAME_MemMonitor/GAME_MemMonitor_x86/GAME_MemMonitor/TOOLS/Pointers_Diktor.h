@@ -43,7 +43,10 @@ bool ValidTypes(std::string type);
 
 bool CheckPointer(void* pointer);
 //uintptr_t Parseuintptr_t(std::string str);
-std::string CalcPointerByOffsets(std::string module_name, uintptr_t  base_offset, std::vector<uintptr_t> offsets, bool check_chain);
+//std::string CalcPointerByOffsets(std::string module_name, uintptr_t  base_offset, std::vector<uintptr_t> offsets, bool check_chain);
+std::string CalcPointerByOffsetsStr(std::string module_name, uintptr_t  base_offset, std::vector<uintptr_t> offsets, bool check_chain);
+//pTicketNonConnectPointer = CalcPointerByOffsets("client.dll", 0x49AA38, { 0x4, 0xC, 0x8 }, true);
+void* CalcPointerByOffsets(std::string module_name, uintptr_t  base_offset, std::vector<uintptr_t> offsets, bool check_chain);
 bool CheckChainPointersByOffsets(std::string module_name, uintptr_t  base_offset, std::vector<uintptr_t> offsets);
 
 

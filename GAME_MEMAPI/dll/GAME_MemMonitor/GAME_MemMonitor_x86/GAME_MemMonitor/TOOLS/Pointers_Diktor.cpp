@@ -285,8 +285,39 @@ bool CheckPointerlpMaximumApplicationAddress(void* pointer)
 
 bool CheckPointer(void* pointer) { return CheckPointerBounds(pointer); }
 
+//pTicketNonConnectPointer = CalcPointerByOffsets("client.dll", 0x49AA38, { 0x4, 0xC, 0x8 }, true);
+void* CalcPointerByOffsets(std::string module_name, uintptr_t  base_offset, std::vector<uintptr_t> offsets, bool check_chain)
+{
+	void* LibPtr = GetModuleHandleA(module_name.c_str());
+	//std::cout << "\nLibPtr: " << LibPtr << "\n";
+	//std::cout << "LibPtr: 0x" << LibPtr << "\n";
+	if (!LibPtr) { return nullptr; }
 
-std::string CalcPointerByOffsets(std::string module_name, uintptr_t  base_offset, std::vector<uintptr_t> offsets, bool check_chain)
+	void* StartPtr = Transpose(LibPtr, base_offset);
+	//std::cout << "StartPtr: " << StartPtr << "\n";
+
+
+	void* TmpPtr = PD_IntPtr2VoidPtr(PD_ReadPtr<uintptr_t>(StartPtr)); // void*
+	//std::cout << "TmpPtr[0]: " << TmpPtr << "\n";
+	//std::cout << "PD_ReadPtr TmpPtr[0]: " << PD_ReadPtr<long long int>(StartPtr) << "\n";
+
+	if (check_chain && (!CheckPointer(TmpPtr))) { return nullptr; }
+
+	for (int i = 0; i < offsets.size(); i++)
+	{
+		TmpPtr = Transpose(TmpPtr, offsets[i]);
+		if ((i + 1 >= offsets.size())) { break; } // the next reread will return the desired value (now TmpPtr indicate to value)
+		TmpPtr = PD_IntPtr2VoidPtr(PD_ReadPtr<uintptr_t >(TmpPtr)); // void*
+		if (check_chain && (!CheckPointer(TmpPtr))) { return nullptr; } // оффсетов много значение 0 раньше, ошибка
+		//std::cout << "TmpPtr: " << PointerToString(TmpPtr) << "\n";
+		//std::cout << "offset: " << offsets[i] << "\n";
+	}
+
+	return TmpPtr;
+}
+
+
+std::string CalcPointerByOffsetsStr(std::string module_name, uintptr_t  base_offset, std::vector<uintptr_t> offsets, bool check_chain)
 {
 	void* LibPtr = GetModuleHandleA(module_name.c_str());
 	//std::cout << "\nLibPtr: " << LibPtr << "\n";
@@ -317,6 +348,8 @@ std::string CalcPointerByOffsets(std::string module_name, uintptr_t  base_offset
 }
 
 
+
+// проверить цепочку указателей
 bool CheckChainPointersByOffsets(std::string module_name, uintptr_t  base_offset, std::vector<uintptr_t> offsets)
 {
 	void* LibPtr = GetModuleHandleA(module_name.c_str());
